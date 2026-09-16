@@ -1,0 +1,53 @@
+
+package com.mycompany.parcial;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ListIterator;
+
+
+/**
+ *
+ * @author prestamo
+ */
+public class Parcial {
+
+    public static void main(String[] args) 
+    
+    {
+        
+        List <String> inventariobase = new ArrayList<>();
+        
+        String [] proovedor = {" Religion ", " etica ", " Biologia "," Ingles "};
+        List <String> inventarioproovedor = Arrays.asList(proovedor);
+        
+        inventariobase.add(" Pioloto - Programacion ");
+        inventariobase.add(" Piloto - Español ");
+        inventariobase.add(" Pioloto - Catedra ");
+        inventariobase.add(" Pioloto - Fisica ");
+        
+        List<String> inventarioconsolidado = new ArrayList <> (inventariobase);
+        inventarioconsolidado.addAll(inventarioproovedor);
+        
+        System.out.println("\n inventario base: ");
+        inventariobase.forEach(System.out::println);
+        System.out.println("\n proovedor: ");
+        inventarioproovedor.forEach(System.out::println);
+        System.out.println("\n inventario consolidado: ");
+        
+      ListIterator<String> iterator = inventariobase.listIterator();
+        while (iterator.hasNext()) {
+            String materias = iterator.next();
+            System.out.println(" \n * revisando " + inventariobase);
+            
+            if (materias.startsWith("piloto ")) {
+                iterator.remove();
+                System.out.println(" -> se elimino por ser piloto");
+            
+            } 
+            System.out.println("\n lista final de inventariobase: ");
+            inventariobase.forEach(System.out::println);                           
+               
+    }
+  }
