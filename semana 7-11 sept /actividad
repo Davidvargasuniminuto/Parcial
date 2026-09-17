@@ -1,0 +1,33 @@
+package problema_1;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class fruterialacosecha {
+
+    public static void main(String[] args) {
+        
+        List <String> inventariobase = new ArrayList<>();
+        
+        String [] frutasproovedor = {" freza ", " lulo ", " naranja "," mandarina "};
+        List <String> inventarioproovedor = Arrays.asList(frutasproovedor);
+        
+        inventariobase.add(" papaya ");
+        inventariobase.add(" pera ");
+        inventariobase.add(" mango ");
+        inventariobase.add(" kiwi ");
+        
+        List<String> inventarioconsolidado = new ArrayList <> (inventariobase);
+        inventarioconsolidado.addAll(inventarioproovedor);
+        
+        System.out.println("\n inventario base: ");
+        inventariobase.forEach(System.out::println);
+        System.out.println("\n inventario proovedor: ");
+        inventarioproovedor.forEach(System.out::println);
+        System.out.println("\n inventario consolidado: ");
+        inventarioconsolidado.forEach(System.out::println);
+        
+    }
+     
+}
