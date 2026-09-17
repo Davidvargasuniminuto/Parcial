@@ -1,0 +1,55 @@
+package problema_3;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+
+
+public class turnos {
+
+ 
+    public static void main(String[] args) {
+        List <String> pacientes= new ArrayList<>();
+        pacientes.add(" daniel perez ");
+        pacientes.add(" dayana rodriguez ");
+        pacientes.add(" david gonzales ");
+        pacientes.add(" marcela martinez ");
+        
+        System.out.println(" \n posicion de los pacientes: ");
+        
+        ListIterator<String> iterator = pacientes.listIterator();
+        
+        while (iterator.hasNext()) {
+            int posicion = iterator.nextIndex() + 1;
+            String paciente = iterator.next();
+            System.out.println(" posicion " + posicion + ": " + paciente);
+            
+            if (posicion == 1) {
+                iterator.add (" urgencia - sandra torres ");
+            
+            }
+        
+        }
+        
+        System.out.println(" \n posicion de los pacientes (invertida) ");
+        while (iterator.hasPrevious()) { 
+            int posicioninversa = iterator.previousIndex() + 1;
+            String paciente = iterator.previous();
+            System.out.println(" posicion " + posicioninversa + ": " + paciente);
+        
+        
+            
+        
+        }
+        
+        System.out.println(" \n posiscion final de los pacientes: ");
+        while (iterator.hasNext()) {
+            int posicion = iterator.nextIndex() + 1;
+            String paciente = iterator.next();
+            System.out.println(" posicion " + posicion + ": " + paciente);
+        
+        }
+        
+    }
+    
+}
