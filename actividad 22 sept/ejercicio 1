@@ -1,0 +1,42 @@
+import java.util.LinkedList;
+
+public class inventary {
+  
+    public static void Main (String[]args){
+    LinkedList<String> materias=new LinkedList<>();
+   
+    materias.add ("ingles");
+    materias.add ("fisica");
+    materias.add ("calculo");
+    materias.add ("programacion");
+    
+    materias.forEach(System.out::println);
+        
+materias.addFirst("Algoritmos");
+
+     System.out.println("\n Se agrego Algoritmos al inicio de la lista");
+    materias.forEach(System.out::println);
+    
+    materias.addLast("\n Inteligencia artificial");
+    materias.forEach(System.out::println);
+    
+        System.out.println("\nLA MATERIA QUE ESTA EN LA POSICION 3 ES: " + materias.get(3));
+        
+        //Consultar primer y ultimo elemento de la lista
+        System.out.println("\nEl primer elemento de la lista es: " + materias.getFirst());
+        System.out.println("\nEl ultimo elemento de la lista es: " + materias.getLast());
+        
+        //Confirmar si la materia INGLES Eesta en la lista
+        if (materias.contains("Ingles")){
+            System.out.println(materias.contains("Ingles"));
+        }
+        else{
+            System.out.println("\nLA LISTA NO CONTIENE LA MATERIA INGLES");
+        }
+        
+        //Consultar la posicion de base de datos
+        System.out.println("\nLA MATERIA PROGRAMACIÓN ESTA EN LA POSICION: " + materias.indexOf("Programacón"));
+        
+    
+}
+}
