@@ -1,0 +1,56 @@
+public class Product {
+     
+    private int ID;
+    private int Existence;
+    private String name;
+    private Double Price;
+    
+    public Product (int ID, int Existence, String name, Double Price){
+        this.ID= ID;
+        this.Existence= Existence;
+        this.name= name;
+        this.Price= Price;
+    }
+    public Product (){
+        
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public int getExistence() {
+        return Existence;
+    }
+
+    public void setExistence(int Existence) {
+        this.Existence = Existence;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getPrice() {
+        return Price;
+    }
+
+    public void setPrice(Double Price) {
+        this.Price = Price;
+    }
+ 
+    @Override
+    public String toString() {
+        return "Product{" + "ID=" + ID + ", Existence=" + Existence + ", name=" + name + ", Price=" + Price + '}';
+    }
+        
+    
+}
