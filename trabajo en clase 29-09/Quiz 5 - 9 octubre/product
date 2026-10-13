@@ -1,0 +1,73 @@
+public class Product {
+
+    private int ID;
+    private int Existence;
+    private String name;
+    private Double Price;
+    private String category; // Reto 1: Atributo categoría[cite: 1]
+
+    // Constructor completo (con categoría)
+    public Product(int ID, int Existence, String name, Double Price, String category) {
+        this.ID = ID;
+        this.Existence = Existence;
+        this.name = name;
+        this.Price = Price;
+        this.category = category;
+    }
+
+    // Constructor de compatibilidad (por si no se especifica la categoría)
+    public Product(int ID, int Existence, String name, Double Price) {
+        this(ID, Existence, name, Price, "Sin Categoría");
+    }
+
+    // Constructor vacío
+    public Product() {
+
+    }
+
+    // Getters y Setters
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public int getExistence() {
+        return Existence;
+    }
+
+    public void setExistence(int Existence) {
+        this.Existence = Existence;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getPrice() {
+        return Price;
+    }
+
+    public void setPrice(Double Price) {
+        this.Price = Price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" + "ID=" + ID + ", Existence=" + Existence + ", name='" + name + '\'' + ", Price=" + Price + ", category='" + category + '\'' + '}';
+    }
+}
