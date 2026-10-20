@@ -1,0 +1,41 @@
+package com.mycompany.vector02;
+import java.util.Vector;
+/**
+ *
+ * @author prestamo
+ */
+public class Vector02 {
+
+    public static void main(String[] args) {
+       Vector<String> estudiantes = new Vector(10);
+
+        estudiantes.add("Angela");
+        estudiantes.add("Lucas");
+        estudiantes.add("Sofia");
+        estudiantes.add("Carolina");
+        estudiantes.add("Mariana");
+        estudiantes.add("Paco");
+        estudiantes.add("Liset");
+        estudiantes.add("Jorje");
+        estudiantes.add("Sindi");
+        estudiantes.add("Andrea");
+
+        System.out.println("Vector inicial: " + estudiantes);
+
+        System.out.println("Elemento en posicion 2: "
+                + estudiantes.get(2));
+
+        estudiantes.set(2, "Daniela");
+        System.out.println("Vector despues de set: "
+                + estudiantes);
+        estudiantes.remove(4);
+        System.out.println("Vector despues de remove: "
+                + estudiantes);
+
+        System.out.println("Cantidad de elementos (size): "
+                + estudiantes.size());
+
+        System.out.println("Capacidad del Vector (capacity): "
+                + estudiantes.capacity());
+    }
+}
