@@ -1,0 +1,24 @@
+import java.util.PriorityQueue;
+
+public class PrioridadPalabras {
+    public static void main(String[] args) {
+        PriorityQueue<String> cola = new PriorityQueue<>();
+
+
+        cola.offer("Juan");
+        cola.offer("Bogota");
+        cola.offer("Sistemas");
+        cola.offer("Java");
+
+       
+        System.out.println(cola);
+
+     
+        System.out.println("Cabeza: " + cola.peek());
+
+     
+        while (!cola.isEmpty()) {
+            System.out.println("Sale: " + cola.poll());
+        }
+    }
+}
