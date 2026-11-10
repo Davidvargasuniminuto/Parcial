@@ -1,0 +1,35 @@
+import java.util.Stack;
+
+public class PilaPersonal {
+    public static void main(String[] args) {
+        Stack<Integer> pila = new Stack<>();
+
+       
+        pila.push(12);
+        imprimirPila(pila);
+
+        pila.push(25);
+        imprimirPila(pila);
+
+        pila.push(7);
+        imprimirPila(pila);
+
+        
+        System.out.println("Posicion de mi numero de lista: " + pila.search(12));
+
+
+        while (!pila.empty()) {
+            System.out.println("Se saco " + pila.pop());
+            imprimirPila(pila);
+        }
+    }
+
+    private static void imprimirPila(Stack<Integer> pila) {
+        if (pila.empty()) {
+            System.out.println("La pila esta vacia\n");
+        } else {
+            System.out.println("Cima: " + pila.peek());
+            System.out.println("Contenido: " + pila + "  <- la cima es el de la derecha\n");
+        }
+    }
+}
