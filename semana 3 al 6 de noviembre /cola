@@ -1,0 +1,41 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class ColaPersonal {
+    public static void main(String[] args) {
+        Queue<Integer> cola = new LinkedList<>();
+
+
+        cola.offer(12);
+        imprimirCola(cola);
+
+        cola.offer(25);
+        imprimirCola(cola);
+
+        cola.offer(7);
+        imprimirCola(cola);
+
+
+        Integer atendido = cola.poll();
+        System.out.println("Se atendio " + atendido);
+        imprimirCola(cola);
+
+
+        while (!cola.isEmpty()) {
+            Integer sacado = cola.poll();
+            System.out.println("Se atendio " + sacado);
+            imprimirCola(cola);
+        }
+    }
+
+
+    private static void imprimirCola(Queue<Integer> cola) {
+        if (cola.isEmpty()) {
+            System.out.println("La cola esta vacia\n");
+        } else {
+            System.out.println("Tamano: " + cola.size());
+            System.out.println("Cabeza: " + cola.peek());
+            System.out.println("Contenido: " + cola + "  <- la cabeza es el de la izquierda\n");
+        }
+    }
+}
