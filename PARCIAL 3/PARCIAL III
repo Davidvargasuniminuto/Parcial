@@ -1,0 +1,109 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.saladeemergencia;
+port java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
+/**
+ *
+ * @author prestamo
+ */
+public class SalaEmergencias {
+
+   // Clase Paciente: el "molde" de cada paciente.
+    // Va dentro de SalaEmergencias (por eso lleva static).
+    static class Paciente implements Comparable<Paciente> {
+
+        private String nombre;
+        private int gravedad;   // 1 Leve, 2 Moderada, 3 Grave, 4 Muy grave
+
+        public Paciente(String nombre, int gravedad) {
+            this.nombre = nombre;
+            this.gravedad = gravedad;
+        }
+        // P1. En "this.nombre = nombre", ¿cuál de los dos es el atributo
+        //     del paciente y cuál es el dato que llegó entre paréntesis?
+        // R:(el de la izquierda es el atributo del objeto y nombre es de la derecha es el parámetro que le pasamos por paréntesis.
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public int getGravedad() {
+            return gravedad;
+        }
+
+        public String getGravedadTexto() {
+            switch (gravedad) {
+                case 1: return "Leve";
+                case 2: return "Moderada";
+                case 3: return "Grave";
+                case 4: return "Muy grave";
+                default: return "Desconocida";
+            }
+        }
+        // P2. Si un paciente tuviera gravedad 7, ¿qué texto mostraría? ¿Por qué?
+        // R:lo que mostraría Desconocida porque el código solo tiene contemplados los casos del 1 al 4, así que el 7 cae directo en el default
+
+        @Override
+        public String toString() {
+            return nombre + " (" + getGravedadTexto() + ")";
+        }
+
+        @Override
+        public int compareTo(Paciente otro) {
+            return Integer.compare(otro.gravedad, this.gravedad);
+        }
+        // P3. compareTo decide quién va primero en el triage.
+        //     Si se escribiera Integer.compare(this.gravedad, otro.gravedad),
+        //     ¿quién saldría primero: el más grave o el menos grave?
+        // R:saldría el menos grave se ordena de menor a mayor 1 seria el primero, mientras que al revés (otro, this) hace que salgan primero los más graves.
+    }
+
+    public static void main(String[] args) {
+
+        // ---------- 1. SALA DE ESPERA (Queue: orden de llegada) ----------
+        Queue<Paciente> salaEspera = new LinkedList<>();
+        salaEspera.offer(new Paciente("Juan", 1));
+        salaEspera.offer(new Paciente("Raquel", 3));
+        salaEspera.offer(new Paciente("Ignacio", 2));
+        salaEspera.offer(new Paciente("Omar", 4));
+        salaEspera.offer(new Paciente("Beatriz", 3));
+        salaEspera.offer(ew Paciente("Xochilt", 1));
+        System.out.println("Orden de llegada: " + salaEspera);
+        // P4. ¿Por qué Juan aparece de primero en la sala de espera?
+        // R: porque juan tiene una mayot prioridad por la interfas queue. el primero que llega es el primero en ser atendido, y Juan fue el primerito en formarse.
+
+        // ---------- 2. TRIAGE (PriorityQueue: el más grave primero) ----------
+        PriorityQueue<Paciente> triage = new PriorityQueue<>();
+        while (!salaEspera.isEmpty()) {
+            triage.offer(salaEspera.poll());
+        }
+        System.out.println("Paciente mas urgente: " + triage.peek());
+        System.out.println();
+        // P5. Al terminar este while, ¿cuántos pacientes quedan en salaEspera? ¿Por qué?
+        // R: serian cero porque el ciclo se encargó de vaciar por completo la sala de espera pasando a todos los pacientes al triage
+
+        // ---------- 3. ATENCIÓN E HISTORIAL (Stack: el último queda arriba) ----------
+        Stack<Paciente> historial = new Stack<>();
+        while (!triage.isEmpty()) {
+            Paciente atendido = triage.poll();
+            System.out.println("Atendiendo a: " + atendido);
+            historial.push(atendido);
+        }
+        // P6. Juan llegó de primero, pero lo atienden de quinto.? 
+        // R: porque no es un paciente con prioridad/ su emergancia no estan grave Porque el triage ordena por urgencia, no por turno de llegada
+
+        System.out.println();
+        System.out.println("Ultimo paciente atendido: " + historial.peek());
+        System.out.println("Total atendidos: " + historial.size());
+        // P7. ¿Por qué historial.peek() muestra a Xochilt y no a Omar: porque xochilt esta en la cima/mayor prioridad sobre los demas.
+        // R: Porque el historial es una pila el último en entrar xochilt es la que fue atendida de última es el que queda arriba del todo, y peek() solo mira a la cima
+
+        // P8. ¿Qué diferencia hay entre peek() y poll()? Da un ejemplo de este código
+        // R: la diferencia es que PEAK muestra la cima sin eliminar nada, el POLL es para borrar en la posicion en la que se encuentre, dependiendo si es pila o cola.
+    }
+}
